@@ -88,3 +88,29 @@
     background: linear-gradient(to bottom, #c9daf7, #9db4e3);
     transform: scale(0.98); /* Efecto de "presionar" */
 }
+/* Botón X estilo Windows Vista */
+.close-btn {
+    position: absolute;           /* Lo pone flotante */
+    top: 12px;                    /* Lo baja un poquito */
+    right: 15px;                  /* Lo lleva a la esquina */
+    background: linear-gradient(to bottom, #ff9a9a, #d95353); /* Rojo Vista */
+    border: 1px solid #7a1f1f;    
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3),
+                inset 0 0 4px rgba(255,255,255,0.6);
+    transition: 0.2s;
+}
+
+.close-btn:hover {
+    background: linear-gradient(to bottom, #ffb3b3, #c83f3f);
+}
+
+.close-btn:active {
+    transform: scale(0.92);  /* Efecto de presionar */
+}
