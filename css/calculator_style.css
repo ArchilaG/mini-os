@@ -71,10 +71,16 @@ button{
 }
 
 @media (min-width: 481px) {
-
     button{
         border-radius: 20%;
         font-size: 5rem;
+    }
+    .numbers button:hover, .operators button:hover{
+        transform: scale(1.2);
+        cursor: pointer;
+    }
+    .numbers button:active,.operators button:active{
+        transform: scale(0.7);
     }
 }
 
