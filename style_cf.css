@@ -1,0 +1,14 @@
+h1{
+    text-align: center;
+}
+.note_section {
+    flex-direction: column; /* esto centra esa cosa */
+    display:flex;
+    align-items: center;
+}
+textarea{
+    background-color: azure;
+}
+body{
+    background-color: rgba(167, 167, 167, 0.69);
+}
