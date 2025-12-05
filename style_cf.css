@@ -1,0 +1,116 @@
+/* --- Fondo general tipo Windows Vista --- */
+.body-notepad {
+    margin: 0; /* Quita márgenes del body */
+    padding: 0; /* Quita relleno del body */
+    background: linear-gradient(135deg, #4c7bc5, #1b3a73); /* Fondo degradado estilo Vista */
+    height: 100vh; /* Ocupa toda la pantalla */
+    font-family: "Segoe UI", Tahoma, sans-serif; /* Fuente típica de Windows */
+    display: flex; /* Activa flexbox */
+    flex-direction: column; /* Acomoda los elementos en columna */
+    align-items: center; /* Centra horizontalmente */
+}
+
+/* --- Barra superior estilo Windows Vista --- */
+.header_note {
+    width: 100%; /* Ocupa todo el ancho */
+    background: linear-gradient(to bottom, #e8f0ff, #c7d8f4); /* Degradado suave tipo Vista */
+    border-bottom: 1px solid #8ca9d8; /* Línea inferior */
+    padding: 15px 0; /* Espacio vertical */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25); /* Sombra como barra de ventana */
+}
+
+.title-notepad {
+    margin: 0; /* Sin márgenes */
+    text-align: center; /* Centrado */
+    color: #1f3d7a; /* Azul Vista */
+    font-weight: bold; /* Negrita */
+    letter-spacing: 2px; /* Espaciar letras */
+    text-shadow: 0 1px 3px rgba(255,255,255,0.8); /* Brillo típico de Vista */
+}
+
+/* --- Sección del bloc de notas --- */
+.note_section {
+    margin-top: 40px; /* Separación desde el header */
+    display: flex; /* Flexbox */
+    flex-direction: column; /* Elementos en columna */
+    align-items: center; /* Centrado */
+    gap: 20px; /* Espaciado entre textarea y botón */
+}
+
+/* --- Área de texto estilo Windows Vista --- */
+#notepad {
+    width: 650px; /* Ancho del área de nota */
+    height: 450px; /* Alto del área de nota */
+    padding: 15px; /* Espacio interior */
+    resize: none; /* Desactiva el cambio de tamaño */
+
+    background: rgba(255,255,255,0.85); /* Fondo claro semitransparente */
+    border: 2px solid #98b2e0; /* Borde azul tipo Vista */
+    border-radius: 6px; /* Bordes redondeados */
+
+    /* Sombras internas y externas para efecto de ventana */
+    box-shadow: inset 0 0 8px rgba(0,0,0,0.15),
+                0 4px 10px rgba(0,0,0,0.3);
+
+    font-size: 16px; /* Tamaño de fuente */
+    color: #10305b; /* Azul oscuro para el texto */
+    font-family: Consolas, monospace; /* Fuente tipo editor */
+}
+
+/* --- Botón estilo Windows Vista --- */
+.note-button {
+    padding: 10px 25px; /* Tamaño del botón */
+    font-size: 15px; /* Tamaño de texto */
+    border-radius: 6px; /* Bordes redondeados */
+    border: 1px solid #5c7bb3; /* Borde azul */
+
+    /* Degradado brillante estilo Vista */
+    background: linear-gradient(to bottom, #ffffff, #bdd0f3);
+    color: #1c2c4e; /* Texto azul oscuro */
+    font-weight: 600; /* Resalta el texto */
+
+    cursor: pointer; /* Cursor de clic */
+    
+    /* Sombra externa + brillo interno */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3),
+                inset 0 0 4px rgba(255,255,255,0.7);
+
+    transition: 0.2s; /* Animación suave */
+}
+
+.note-button:hover {
+    /* Más brillo cuando pasas el mouse */
+    background: linear-gradient(to bottom, #ffffff, #dbe7ff);
+}
+
+.note-button:active {
+    /* Color más oscuro al hacer clic */
+    background: linear-gradient(to bottom, #c9daf7, #9db4e3);
+    transform: scale(0.98); /* Efecto de "presionar" */
+}
+/* Botón X estilo Windows Vista */
+.close-btn {
+    position: absolute;           /* Lo pone flotante */
+    top: 12px;                    /* Lo baja un poquito */
+    right: 15px;                  /* Lo lleva a la esquina */
+    background: linear-gradient(to bottom, #ff9a9a, #d95353); /* Rojo Vista */
+    border: 1px solid #7a1f1f;    
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3),
+                inset 0 0 4px rgba(255,255,255,0.6);
+    transition: 0.2s;
+}
+
+.close-btn:hover {
+    background: linear-gradient(to bottom, #ffb3b3, #c83f3f);
+}
+
+.close-btn:active {
+    transform: scale(0.92);  /* Efecto de presionar */
+}
