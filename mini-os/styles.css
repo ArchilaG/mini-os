@@ -1,0 +1,212 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.pantalla-carga{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    background-image: url(imagenes/carga.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: fadeOut 2s ease-in-out 3s forwards;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-top: 300px;
+}
+
+.escritorio {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to bottom, #1e5799  0%, #7db9e8 100% );
+    position: relative;
+    overflow: hidden;
+}
+
+.escritorio-iconos {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.icono {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80px;
+    text-decoration: none;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+.icono-imagen {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 5px;
+}
+
+.icono-imagen img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.icono-nombre {
+    font-size: 11px;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.barra-tareas {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.boton-inicio {
+    width: 54px;
+    height: 30px;
+    background: linear-gradient(to bottom, #4eb5e5, #1e5799);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+
+.boton-inicio img {
+    width: 24px;
+    height: 24px;
+}
+
+.reloj {
+    color: white;
+    font-size: 12px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+.icono:hover{
+    background: rgba(255, 255, 2555, 0.2);
+    border-radius: 5px;
+    padding: 5px;
+
+}
+
+.boton-inicio:hover {
+    background: linear-gradient(to bottom, #5ec5f5, #2e6799);
+    transform: scale(1.05);
+}
+
+.boton-inicio:active{
+    transform: scale(0.95);
+}
+
+.menu-inicio{
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    width: 300px;
+    background: rgba(0, 0, 0, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3sg ease;
+}
+
+.boton-inicio:hover + .menu-inicio,
+.menu-inicio:hover{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.menu-contenido{
+    padding: 15px;
+}
+
+.menu-titulo{
+    color: white;
+    font-size: 14px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 13px;
+    border-radius: 4px;
+    transition: background 0.2s;
+    gap: 10px;
+}
+
+.menu-item:hover{
+    background: rgba(255, 255, 255, 0.15);
+
+}
+
+.menu-item img{
+    width: 24px;
+    height: 24px;
+
+}
+
+@keyframes fadeOut {
+    0%{
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows Vista</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="pantalla-carga">
+        <div class="logo-carga"></div>
+        <div class="spinner"></div>
+    </div>
+
+    <audio id="sonido-inicio" src="sonidos/inicio.mp3"></audio>
+
+    <div class="escritorio"> 
+        <div class="escritorio-iconos">
+            
+            <a href="apps/app1.html" class="icono">
+                <div class="icono-imagen">
+                    <img src="imagenes/galeria.png" alt="">
+                </div>
+                <span class="icono-nombre">Galería</span>
+            </a>
+            
+            <a href="apps/app2.html" class="icono">
+                <div class="icono-imagen">
+                    <img src="imagenes/calculadora.png" alt="">
+                </div>
+                <span class="icono-nombre">Calculadora</span>
+            </a>
+            
+            <a href="apps/app3.html" class="icono">
+                <div class="icono-imagen">
+                    <img src="imagenes/lupa.png" alt="">
+                </div>
+                <span class="icono-nombre">Buscador</span>
+            </a>
+            
+        </div> 
+
+           <div class="barra-tareas">
+            <button class="boton-inicio">
+                <img src="imagenes/windows.png" alt="">
+            </button>
+
+            <div class="menu-inicio">
+                <div class="menu-contenido">
+                    <h3 class="menu-titulo">Programas</h3>
+                    
+                    <a href="apps/app1.html" class="menu-item">
+                        <img src="imagenes/galeria.png" alt="">
+                        <span>Galería</span>
+                    </a>
+
+                    <a href="apps/app2.html" class="menu-item">
+                        <img src="imagenes/calculadora.png" alt="">
+                        <span>Calculadora</span>
+                    </a>
+
+                    <a href="apps/app3.html" class="menu-item">
+                        <img src="imagenes/lupa.png" alt="">
+                        <span>Buscador</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="reloj">12:00 PM</div>
+        </div>
+        
+    </div> 
+
+
+
+    
+    
+    <script>
+        window.addEventListener('load', function() {
+            const sonido = document.getElementById('sonido-inicio');
+            sonido.play();
+        });
+    </script>
+
+</body>
+</html>
