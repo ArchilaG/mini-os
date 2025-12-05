@@ -1,0 +1,181 @@
+/* SELECTOR: body */
+/* FUNCIÓN: Define el fondo principal de toda la aplicación, estableciendo un color azul muy claro que simula el área de trabajo de la ventana. También asegura que la aplicación ocupe la pantalla completa. */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #EAF2FC;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* CLASE: .main-container */
+/* FUNCIÓN: El contenedor principal que engloba toda la ventana. Se encarga de apilar verticalmente (de arriba abajo) la barra de título, la barra de menú, el área de imagen y la barra inferior. */
+.main-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* CLASE: .title-bar */
+/* FUNCIÓN: Diseña la barra de título superior, donde aparece el texto "Visualizador de fotos de Windows". Define su fondo grisáceo/azulado claro y separa el título de los botones de control. */
+.title-bar {
+    background-color: #DAE4F0;
+    border-bottom: 1px solid #C4C4C4;
+    padding: 2px 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 25px;
+}
+
+/* SELECTOR: .title-bar h1 */
+/* FUNCIÓN: Estiliza el texto del título dentro de la barra superior. */
+.title-bar h1 {
+    font-size: 14px;
+    font-weight: normal;
+    color: #444;
+    margin: 0;
+}
+
+/* CLASE: .window-controls */
+/* FUNCIÓN: Contenedor de los tres botones estándar de ventana: Minimizar, Maximizar/Restaurar y Cerrar. */
+.window-controls {
+    display: flex;
+}
+
+/* SELECTOR: .window-controls p */
+/* FUNCIÓN: Estiliza cada uno de los botones de control de la ventana (Minimizar, Maximizar, Cerrar). */
+.window-controls p {
+    margin: 0;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
+    font-size: 16px;
+    color: #444;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* ID: #close */
+/* FUNCIÓN: Estiliza específicamente el botón de Cerrar para que tenga el fondo rojo distintivo de Windows cuando se le pasa el cursor (en una implementación real). */
+#close {
+    background-color: #E81123;
+    color: white;
+}
+
+/* CLASE: .menu-bar */
+/* FUNCIÓN: Diseña la barra de menú que está justo debajo de la barra de título (Archivo, Imprimir, etc.). Le da un fondo blanco roto o muy claro y alinea los elementos horizontalmente. */
+.menu-bar {
+    background-color: #F8F8F8;
+    border-bottom: 1px solid #C4C4C4;
+    padding: 0 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 25px;
+}
+
+/* SELECTOR: .menu-bar ul */
+/* FUNCIÓN: El contenedor de la lista de opciones (Archivo, Imprimir, Correo electrónico, etc.), asegurando que se muestren como una fila horizontal en la barra de menú. */
+.menu-bar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+/* SELECTOR: .menu-bar ul li */
+/* FUNCIÓN: Estiliza cada una de las opciones individuales dentro de la barra de menú. */
+.menu-bar ul li {
+    padding: 0 8px;
+    font-size: 12px;
+    color: #333;
+    cursor: pointer;
+}
+
+/* SELECTOR: .menu-bar ul li span */
+/* FUNCIÓN: Estiliza el carácter de flecha descendente (⬇) que acompaña a las opciones del menú. */
+.menu-bar ul li span {
+    font-size: 10px;
+}
+
+/* CLASE: .help-button */
+/* FUNCIÓN: Diseña el botón de ayuda con el signo de interrogación (?) que se encuentra a la derecha de la barra de menú. */
+.help-button {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    padding: 0 8px;
+    cursor: pointer;
+}
+
+/* CLASE: .image-area */
+/* FUNCIÓN: La gran área central de la aplicación. Se encarga de ocupar todo el espacio restante disponible y de centrar el carrusel de imágenes dentro de él. También oculta el desbordamiento de contenido (las imágenes fuera de la vista). */
+.image-area {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow: hidden; 
+}
+
+/* ---------------------------------------------------- */
+/* ESTILOS DEL CARRUSEL (MODIFICACIÓN) */
+/* ---------------------------------------------------- */
+
+/* CLASE: .carousel-container */
+/* FUNCIÓN: Contenedor principal del carrusel. Usa flexbox para alinear las imágenes horizontalmente, habilita el desplazamiento horizontal y fuerza que el desplazamiento se detenga en cada imagen (efecto carrusel estático). */
+.carousel-container {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    width: 100%;
+    height: 100%;
+}
+
+/* SELECTOR: .carousel-container img */
+/* FUNCIÓN: Estiliza cada una de las imágenes dentro del carrusel. Asegura que cada imagen ocupe el ancho completo del área visible y que se ajuste al centro cuando se desplaza. Aplica el borde y la sombra que simulan el marco de la imagen en Windows Photo Viewer. */
+.carousel-container img {
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    scroll-snap-align: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    border: 1px solid #C4C4C4;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    margin: 0 10px; 
+    max-width: none;
+    max-height: none;
+}
+
+/* SELECTOR: .carousel-container::-webkit-scrollbar */
+/* FUNCIÓN: Oculta la barra de desplazamiento horizontal del carrusel en navegadores basados en Webkit (como Chrome y Safari) para una apariencia más limpia. */
+.carousel-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* ---------------------------------------------------- */
+
+/* CLASE: .footer-bar */
+/* FUNCIÓN: Diseña la barra de herramientas inferior de la aplicación, dándole el distintivo color azul oscuro de Windows 7/Vista. */
+.footer-bar {
+    background-color: #5D93D0;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CLASE: .controls-sim */
+/* FUNCIÓN: Un elemento interno dentro del footer que se usa para simular el área donde irían los iconos de navegación y zoom de la barra inferior. */
+.controls-sim {
+    width: 95%;
+    height: 40px;
+}
