@@ -1,214 +1,438 @@
+/* ========================================
+   ESTILOS GENERALES DEL MINI-OS
+   Esto resetea todos los estilos por defecto del navegador
+   ======================================== */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    
+    margin: 0; /* Quita todos los márgenes por defecto */
+    padding: 0; /* Quita todos los espacios internos por defecto */
+    box-sizing: border-box; /* Hace que los tamaños sean más predecibles */
 }
 
+/* ========================================
+   PANTALLA DE CARGA
+   La primera pantalla que ves al abrir la página
+   ======================================== */
 .pantalla-carga{
+    position: fixed; /* Se queda fija en la pantalla */
+    top: 0; /* Pegada arriba */
+    left: 0; /* Pegada a la izquierda */
+    width: 100vw; /* Ocupa todo el ancho de la pantalla */
+    height: 100vh; /* Ocupa todo el alto de la pantalla */
+    background-color: #000; /* Fondo negro */
+    background-image: url(imagenes/carga.jpg); /* Imagen de fondo de Windows Vista */
+    background-size: cover; /* La imagen cubre toda la pantalla */
+    background-position: center; /* Centra la imagen */
+    display: flex; /* Usamos flexbox para organizar los elementos */
+    flex-direction: column; /* Los elementos se ponen uno abajo del otro */
+    align-items: center; /* Centra horizontalmente */
+    justify-content: center; /* Centra verticalmente */
+    z-index: 9999; /* Se pone encima de todo lo demás */
+    animation: fadeOut 2s ease-in-out 3s forwards; /* Después de 3 segundos se desvanece en 2 segundos */
+}
+
+/* ========================================
+   SPINNER DE CARGA
+   La ruedita que gira mientras carga
+   ======================================== */
+.spinner {
+    width: 50px; /* Ancho del spinner */
+    height: 50px; /* Alto del spinner */
+    border: 5px solid rgba(255, 255, 255, 0.3); /* Borde gris transparente */
+    border-top-color: white; /* La parte de arriba es blanca (esto crea el efecto de giro) */
+    border-radius: 50%; /* Lo hace circular */
+    animation: spin 1s linear infinite; /* Gira constantemente en 1 segundo */
+    margin-top: 300px; /* Lo separa del logo de arriba */
+}
+
+/* ========================================
+   ESCRITORIO
+   El fondo principal donde están los iconos
+   ======================================== */
+.escritorio {
+    width: 100vw; /* Ocupa todo el ancho de la ventana */
+    height: 100vh; /* Ocupa todo el alto de la ventana */
+    background-image: url(imagenes/fondo1.jpg); /* La imagen de fondo de Windows Vista */
+    background-size: cover; /* Cubre toda la pantalla sin deformarse */
+    position: relative; /* Para que los elementos internos se posicionen bien */
+    overflow: hidden; /* Oculta lo que se salga de los bordes */
+}
+
+/* ========================================
+   ÁREA DE ICONOS DEL ESCRITORIO
+   Los programas que aparecen arriba a la izquierda
+   ======================================== */
+.escritorio-iconos {
+    padding: 20px; /* Espacio alrededor de los iconos */
+    display: flex; /* Usamos flexbox para organizar */
+    flex-direction: column; /* Los iconos van uno debajo del otro */
+    gap: 20px; /* Espacio entre cada icono */
+    align-items: flex-start; /* Los alinea a la izquierda */
+}
+
+/* Cada icono individual (Galería, Calculadora, etc.) */
+.icono {
+    display: flex; /* Flexbox para organizar imagen y texto */
+    flex-direction: column; /* Imagen arriba, texto abajo */
+    align-items: center; /* Centra el contenido */
+    width: 80px; /* Ancho de cada icono */
+    text-decoration: none; /* Quita el subrayado del link */
+    color: white; /* Color del texto */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8); /* Sombra negra para que se lea mejor */
+}
+
+/* Contenedor de la imagen del icono */
+.icono-imagen {
+    width: 48px; /* Ancho de la imagen */
+    height: 48px; /* Alto de la imagen */
+    margin-bottom: 5px; /* Espacio entre la imagen y el texto */
+}
+
+/* La imagen dentro del icono */
+.icono-imagen img{
+    width: 100%; /* Ocupa todo el ancho disponible */
+    height: 100%; /* Ocupa todo el alto disponible */
+    object-fit: contain; /* Mantiene las proporciones sin cortar */
+}
+
+/* El nombre que aparece debajo de cada icono */
+.icono-nombre {
+    font-size: 11px; /* Tamaño pequeño del texto */
+    text-align: center; /* Centrado */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente de Windows */
+}
+
+/* Efecto cuando pasas el mouse sobre un icono */
+.icono:hover{
+    background: rgba(255, 255, 255, 0.2); /* Fondo blanco semitransparente */
+    border-radius: 5px; /* Esquinas redondeadas */
+    padding: 5px; /* Espacio interno para que se vea mejor */
+}
+
+/* ========================================
+   BARRA DE TAREAS
+   La barra negra de abajo como en Windows
+   ======================================== */
+.barra-tareas {
+    position: fixed; /* Se queda fija aunque hagas scroll */
+    bottom: 0; /* Pegada abajo */
+    left: 0; /* Pegada a la izquierda */
+    width: 100%; /* Ocupa todo el ancho */
+    height: 40px; /* Altura de la barra */
+    background: rgba(0, 0, 0, 0.7); /* Fondo negro semitransparente */
+    display: flex; /* Flexbox para organizar los elementos */
+    align-items: center; /* Centra verticalmente */
+    justify-content: space-between; /* Botón inicio a la izquierda, reloj a la derecha */
+    padding: 0 10px; /* Espaciado interno a los lados */
+    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Línea blanca arriba */
+}
+
+/* ========================================
+   BOTÓN DE INICIO
+   El botón azul con el logo de Windows
+   ======================================== */
+.boton-inicio {
+    width: 54px; /* Ancho del botón */
+    height: 30px; /* Alto del botón */
+    background: linear-gradient(to bottom, #4eb5e5, #1e5799); /* Degradado azul de arriba a abajo */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Borde blanco sutil */
+    border-radius: 5px; /* Esquinas redondeadas */
+    cursor: pointer; /* Manita al pasar el mouse */
+    display: flex; /* Para centrar el logo */
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Sombra para dar profundidad */
+}
+
+/* El logo de Windows dentro del botón */
+.boton-inicio img {
+    width: 24px; /* Ancho del logo */
+    height: 24px; /* Alto del logo */
+}
+
+/* Efecto cuando pasas el mouse sobre el botón de inicio */
+.boton-inicio:hover {
+    background: linear-gradient(to bottom, #5ec5f5, #2e6799); /* Degradado más claro */
+    transform: scale(1.05); /* Se agranda un poquito */
+}
+
+/* Efecto cuando haces clic en el botón de inicio */
+.boton-inicio:active{
+    transform: scale(0.95); /* Se achica un poquito para simular que lo presionas */
+}
+
+/* ========================================
+   RELOJ DE LA BARRA DE TAREAS
+   La hora que aparece a la derecha
+   ======================================== */
+.reloj {
+    color: white; /* Texto blanco */
+    font-size: 12px; /* Tamaño pequeño */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente de Windows */
+}
+
+/* ========================================
+   MENÚ DE INICIO
+   El menú que aparece cuando pasas el mouse sobre el botón
+   ======================================== */
+.menu-inicio{
+    position: absolute; /* Se posiciona de forma absoluta */
+    bottom: 40px; /* Aparece justo arriba de la barra de tareas */
+    left: 0; /* Alineado a la izquierda */
+    width: 300px; /* Ancho del menú */
+    background: rgba(0, 0, 0, 0.85); /* Fondo negro casi opaco */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Borde blanco sutil */
+    opacity: 0; /* Invisible por defecto */
+    visibility: hidden; /* Oculto por defecto */
+    transform: translateY(20px); /* Desplazado 20px hacia abajo */
+    transition: all 0.3s ease; /* Animación suave de 0.3 segundos */
+}
+
+/* Cuando pasas el mouse sobre el botón de inicio O sobre el menú mismo */
+.boton-inicio:hover + .menu-inicio,
+.menu-inicio:hover{
+    opacity: 1; /* Se hace visible */
+    visibility: visible; /* Se muestra */
+    transform: translateY(0); /* Vuelve a su posición normal */
+}
+
+/* Contenido interno del menú */
+.menu-contenido{
+    padding: 15px; /* Espacio interno */
+}
+
+/* Título "Programas" del menú */
+.menu-titulo{
+    color: white; /* Texto blanco */
+    font-size: 14px; /* Tamaño mediano */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente de Windows */
+    margin-bottom: 10px; /* Espacio abajo */
+    padding-bottom: 10px; /* Espacio interno abajo */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Línea separadora abajo */
+}
+
+/* Cada item del menú (Galería, Calculadora, etc.) */
+.menu-item {
+    display: flex; /* Flexbox para organizar icono y texto */
+    align-items: center; /* Centra verticalmente */
+    padding: 10px; /* Espacio interno */
+    color: white; /* Texto blanco */
+    text-decoration: none; /* Sin subrayado */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente de Windows */
+    font-size: 13px; /* Tamaño de texto */
+    border-radius: 4px; /* Esquinas redondeadas */
+    transition: background 0.2s; /* Animación suave del fondo */
+    gap: 10px; /* Espacio entre el icono y el texto */
+}
+
+/* Efecto cuando pasas el mouse sobre un item del menú */
+.menu-item:hover{
+    background: rgba(255, 255, 255, 0.15); /* Fondo blanco semitransparente */
+}
+
+/* Los iconos pequeños dentro de los items del menú */
+.menu-item img{
+    width: 24px; /* Ancho del icono */
+    height: 24px; /* Alto del icono */
+}
+
+/* === SIDEBAR GADGETS ESTILO VISTA ===
+.sidebar-gadgets {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: #000;
-    background-image: url(imagenes/carga.jpg);
-    background-size: cover;
-    background-position: center;
+    top: 80px;
+    right: 20px;
+    width: 200px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    animation: fadeOut 2s ease-in-out 3s forwards;
+    gap: 15px;
+    z-index: 1000;
 }
 
-.spinner {
-    width: 50px;
-    height: 50px;
-    border: 5px solid rgba(255, 255, 255, 0.3);
-    border-top-color: white;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    margin-top: 300px;
-}
-
-.escritorio {
-    width: 100vw;
-    height: 100vh;
-    background-image: url(imagenes/fondo1.jpg);
-    background-size: cover;
-    position: relative;
+.gadget {
+    background: rgba(0, 0, 0, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
     overflow: hidden;
 }
 
-.escritorio-iconos {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: flex-start;
-}
-
-.icono {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 80px;
-    text-decoration: none;
-    color: white;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
-}
-
-.icono-imagen {
-    width: 48px;
-    height: 48px;
-    margin-bottom: 5px;
-}
-
-.icono-imagen img{
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-.icono-nombre {
-    font-size: 11px;
-    text-align: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.barra-tareas {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 40px;
-    background: rgba(0, 0, 0, 0.7);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 10px;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.boton-inicio {
-    width: 54px;
-    height: 30px;
+.gadget-header {
     background: linear-gradient(to bottom, #4eb5e5, #1e5799);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 5px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-}
-
-
-.boton-inicio img {
-    width: 24px;
-    height: 24px;
-}
-
-.reloj {
     color: white;
+    padding: 8px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     font-size: 12px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
+    font-weight: bold;
 }
 
-.icono:hover{
-    background: rgba(255, 255, 2555, 0.2);
-    border-radius: 5px;
-    padding: 5px;
-
-}
-
-.boton-inicio:hover {
-    background: linear-gradient(to bottom, #5ec5f5, #2e6799);
-    transform: scale(1.05);
-}
-
-.boton-inicio:active{
-    transform: scale(0.95);
-}
-
-.menu-inicio{
-    position: absolute;
-    bottom: 40px;
-    left: 0;
-    width: 300px;
-    background: rgba(0, 0, 0, 0.85);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px);
-    transition: all 0.3sg ease;
-}
-
-.boton-inicio:hover + .menu-inicio,
-.menu-inicio:hover{
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.menu-contenido{
-    padding: 15px;
-}
-
-.menu-titulo{
+.gadget-close {
+    background: none;
+    border: none;
     color: white;
     font-size: 14px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin-bottom: 10px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+} */
 
+/* ========================================
+   ANIMACIONES
+   Efectos de movimiento que se usan en la página
+   ======================================== */
 
-}
-
-.menu-item {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    color: white;
-    text-decoration: none;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 13px;
-    border-radius: 4px;
-    transition: background 0.2s;
-    gap: 10px;
-}
-
-.menu-item:hover{
-    background: rgba(255, 255, 255, 0.15);
-
-}
-
-.menu-item img{
-    width: 24px;
-    height: 24px;
-
-}
-
+/* Animación para que la pantalla de carga desaparezca */
 @keyframes fadeOut {
     0%{
-        opacity: 1;
-        visibility: visible;
+        opacity: 1; /* Comienza visible */
+        visibility: visible; /* Se puede ver */
     }
     100% {
-        opacity: 0;
-        visibility: hidden;
+        opacity: 0; /* Termina invisible */
+        visibility: hidden; /* Oculto completamente */
     }
 }
 
+/* Animación para que el spinner gire */
 @keyframes spin {
     0% {
-        transform: rotate(0deg);
+        transform: rotate(0deg); /* Comienza sin rotar */
     }
     100% {
-        transform: rotate(360deg);
+        transform: rotate(360deg); /* Gira 360 grados (una vuelta completa) */
     }
+}
+
+/* ========================================
+   BARRA LATERAL DE GADGETS
+   Los widgets de la derecha (reloj y calendario) estilo Windows Vista
+   ======================================== */
+.sidebar-gadgets {
+    position: fixed; /* Se queda fijo aunque hagas scroll */
+    top: 80px; /* Separado 80px desde arriba */
+    right: 20px; /* Pegado a la derecha con 20px de margen */
+    width: 200px; /* Ancho de la barra */
+    display: flex; /* Flexbox para organizar los gadgets */
+    flex-direction: column; /* Los gadgets van uno debajo del otro */
+    gap: 15px; /* Espacio entre cada gadget */
+    z-index: 1000; /* Se pone encima de otros elementos */
+}
+
+/* Cada gadget individual (caja contenedora) */
+.gadget {
+    background: rgba(0, 0, 0, 0.75); /* Fondo negro semitransparente */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Borde blanco sutil */
+    border-radius: 8px; /* Esquinas redondeadas */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Sombra para dar profundidad */
+    overflow: hidden; /* Oculta lo que se salga */
+}
+
+/* La barra azul de arriba de cada gadget */
+.gadget-header {
+    background: linear-gradient(to bottom, #4eb5e5, #1e5799); /* Degradado azul */
+    color: white; /* Texto blanco */
+    padding: 8px 12px; /* Espacio interno */
+    display: flex; /* Flexbox para organizar título y botón */
+    justify-content: space-between; /* Título a la izquierda, botón X a la derecha */
+    align-items: center; /* Centra verticalmente */
+    font-size: 12px; /* Tamaño de texto */
+    font-weight: bold; /* Texto en negrita */
+}
+
+/* Botón X para cerrar el gadget */
+.gadget-close {
+    background: none; /* Sin fondo */
+    border: none; /* Sin borde */
+    color: white; /* X blanca */
+    font-size: 14px; /* Tamaño del símbolo X */
+    cursor: pointer; /* Manita al pasar el mouse */
+    width: 16px; /* Ancho del botón */
+    height: 16px; /* Alto del botón */
+}
+
+/* Efecto cuando pasas el mouse sobre el botón X */
+.gadget-close:hover {
+    background: rgba(255, 255, 255, 0.2); /* Fondo blanco semitransparente */
+    border-radius: 2px; /* Esquinas ligeramente redondeadas */
+}
+
+/* Contenido interno de cada gadget */
+.gadget-content {
+    padding: 15px; /* Espacio interno */
+    color: white; /* Texto blanco */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente de Windows */
+}
+
+/* ========================================
+   GADGET DEL RELOJ
+   Muestra la hora y la fecha
+   ======================================== */
+
+/* La hora mostrada en grande */
+.reloj-digital {
+    font-size: 24px; /* Tamaño grande para la hora */
+    font-weight: bold; /* Texto en negrita */
+    text-align: center; /* Centrado */
+    color: #4eb5e5; /* Color azul característico de Vista */
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8); /* Sombra para que destaque */
+    margin-bottom: 8px; /* Espacio abajo */
+}
+
+/* La fecha que aparece debajo de la hora */
+.fecha-actual {
+    font-size: 12px; /* Tamaño más pequeño */
+    text-align: center; /* Centrado */
+    color: #ccc; /* Color gris claro */
+}
+
+/* ========================================
+   GADGET DEL CALENDARIO
+   Muestra el mes actual con todos los días
+   ======================================== */
+
+/* El nombre del mes (ej: "Diciembre 2025") */
+.calendario-mes {
+    font-size: 14px; /* Tamaño mediano */
+    font-weight: bold; /* Texto en negrita */
+    text-align: center; /* Centrado */
+    margin-bottom: 10px; /* Espacio abajo */
+    color: #4eb5e5; /* Color azul de Vista */
+}
+
+/* La cuadrícula del calendario (7 columnas para los días de la semana) */
+.calendario-grid {
+    display: grid; /* Usamos CSS Grid para hacer la tabla */
+    grid-template-columns: repeat(7, 1fr); /* 7 columnas iguales (D L M M J V S) */
+    gap: 2px; /* Espacio pequeño entre cada celda */
+}
+
+/* Los nombres de los días de la semana (D, L, M, etc.) */
+.dia-semana {
+    font-size: 10px; /* Tamaño pequeño */
+    font-weight: bold; /* Texto en negrita */
+    text-align: center; /* Centrado */
+    color: #4eb5e5; /* Color azul */
+    padding: 3px; /* Espacio interno */
+}
+
+/* Cada día del mes (los números) */
+.dia {
+    font-size: 11px; /* Tamaño pequeño */
+    text-align: center; /* Centrado */
+    padding: 4px 2px; /* Espacio interno */
+    cursor: pointer; /* Manita al pasar el mouse */
+    border-radius: 3px; /* Esquinas redondeadas */
+    transition: background 0.2s; /* Animación suave del fondo */
+}
+
+/* Efecto cuando pasas el mouse sobre un día */
+.dia:hover {
+    background: rgba(78, 181, 229, 0.3); /* Fondo azul semitransparente */
+}
+
+/* El día de hoy resaltado */
+.dia.hoy {
+    background: #4eb5e5; /* Fondo azul sólido */
+    color: white; /* Texto blanco para que contraste */
+    font-weight: bold; /* Texto en negrita */
 }

@@ -1,30 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Windows Vista</title>
-    <link rel="stylesheet" href="styles.css">
+    <!-- Configuración básica de la página -->
+    <meta charset="UTF-8"> <!-- Define que se usen caracteres especiales como ñ, tildes, etc -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace que se vea bien en celulares y tablets -->
+    <title>Windows Vista</title> <!-- El título que aparece en la pestaña del navegador -->
+    <link rel="stylesheet" href="styles.css"> <!-- Conecta este HTML con el archivo de estilos CSS -->
 </head>
 <body>
 
+    <!-- PANTALLA DE CARGA: Esta es la primera pantalla que aparece cuando abres la página -->
     <div class="pantalla-carga">
-        <div class="logo-carga"></div>
-        <div class="spinner"></div>
+        <div class="logo-carga"></div> <!-- Aquí va el logo de Windows que aparece al cargar -->
+        <div class="spinner"></div> <!-- Esta es la ruedita que gira mientras carga -->
     </div>
 
+    <!-- SONIDO DE INICIO: El famoso "ta-da" de Windows Vista -->
     <audio id="sonido-inicio" src="sonidos/inicio.mp3"></audio>
 
+    <!-- ESCRITORIO PRINCIPAL: Todo lo que ves después de que carga -->
     <div class="escritorio"> 
+
+        <!-- BARRA LATERAL DE GADGETS: Los widgets que Windows Vista tenía a la derecha -->
+        <div class="sidebar-gadgets">
+            
+            <!-- GADGET DEL RELOJ: Muestra la hora y la fecha -->
+            <div class="gadget reloj-gadget">
+                <div class="gadget-header"> <!-- La barra azul de arriba del gadget -->
+                    <span class="gadget-title">Reloj</span> <!-- Título del gadget -->
+                    <button class="gadget-close">×</button> <!-- Botón X para cerrar -->
+                </div>
+                <div class="gadget-content"> <!-- Contenido del gadget -->
+                    <div class="reloj-digital">12:00 PM</div> <!-- La hora mostrada -->
+                    <div class="fecha-actual">Jueves, 5 de Diciembre</div> <!-- La fecha del día -->
+                </div>
+            </div>
+            
+            <!-- GADGET DEL CALENDARIO: Muestra el calendario del mes -->
+            <div class="gadget calendario-gadget">
+                <div class="gadget-header"> <!-- La barra azul de arriba -->
+                    <span class="gadget-title">Calendario</span>
+                    <button class="gadget-close">×</button>
+                </div>
+                <div class="gadget-content">
+                    <div class="calendario-mes">Diciembre 2025</div> <!-- Mes actual -->
+                    <div class="calendario-grid"> <!-- La cuadrícula de días -->
+                        <!-- Nombres de los días de la semana -->
+                        <div class="dia-semana">D</div> <!-- Domingo -->
+                        <div class="dia-semana">L</div> <!-- Lunes -->
+                        <div class="dia-semana">M</div> <!-- Martes -->
+                        <div class="dia-semana">M</div> <!-- Miércoles -->
+                        <div class="dia-semana">J</div> <!-- Jueves -->
+                        <div class="dia-semana">V</div> <!-- Viernes -->
+                        <div class="dia-semana">S</div> <!-- Sábado -->
+                        
+                        <!-- Los números de los días del mes -->
+                        <div class="dia"></div> <!-- Espacio vacío porque el 1 no cae en domingo -->
+                        <div class="dia">1</div>
+                        <div class="dia">2</div>
+                        <div class="dia">3</div>
+                        <div class="dia">4</div>
+                        <div class="dia">5</div> 
+                        <div class="dia">6</div>
+                        <div class="dia">7</div>
+                        <div class="dia">8</div>
+                        <div class="dia hoy">9</div> <!-- El día de hoy resaltado -->
+                        <div class="dia">10</div>
+                        <div class="dia">11</div>
+                        <div class="dia">12</div>
+                        <div class="dia">13</div>
+                        <div class="dia">14</div>
+                        <div class="dia">15</div>
+                        <div class="dia">16</div>
+                        <div class="dia">17</div>
+                        <div class="dia">18</div>
+                        <div class="dia">19</div>
+                        <div class="dia">20</div>
+                        <div class="dia">21</div>
+                        <div class="dia">22</div>
+                        <div class="dia">23</div>
+                        <div class="dia">24</div>
+                        <div class="dia">25</div>
+                        <div class="dia">26</div>
+                        <div class="dia">27</div>
+                        <div class="dia">28</div>
+                        <div class="dia">29</div>
+                        <div class="dia">30</div>
+                        <div class="dia">31</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ICONOS DEL ESCRITORIO: Los programas que aparecen en el escritorio -->
         <div class="escritorio-iconos">
             
-            <a href="apps/app1.html" class="icono">
+            <!-- Icono de Galería -->
+            <a href="apps/app1.html" class="icono"> <!-- Al hacer clic te lleva a la app de galería -->
                 <div class="icono-imagen">
-                    <img src="imagenes/galeria.png" alt="">
+                    <img src="imagenes/galeria.png" alt=""> <!-- La imagen del icono -->
                 </div>
-                <span class="icono-nombre">Galería</span>
+                <span class="icono-nombre">Galería</span> <!-- El nombre que aparece abajo del icono -->
             </a>
             
+            <!-- Icono de Calculadora -->
             <a href="apps/app2.html" class="icono">
                 <div class="icono-imagen">
                     <img src="imagenes/calculadora.png" alt="">
@@ -32,6 +111,7 @@
                 <span class="icono-nombre">Calculadora</span>
             </a>
             
+            <!-- Icono de Bloc de notas -->
             <a href="apps/app3.html" class="icono">
                 <div class="icono-imagen">
                     <img src="imagenes/notas.png" alt="">
@@ -41,15 +121,20 @@
             
         </div> 
 
+           <!-- BARRA DE TAREAS: La barra de abajo como en Windows -->
            <div class="barra-tareas">
+            
+            <!-- Botón de Inicio de Windows -->
             <button class="boton-inicio">
-                <img src="imagenes/windows.png" alt="">
+                <img src="imagenes/windows.png" alt=""> <!-- Logo de Windows -->
             </button>
 
+            <!-- MENÚ DE INICIO: El menú que aparece al pasar el mouse sobre el botón de inicio -->
             <div class="menu-inicio">
                 <div class="menu-contenido">
-                    <h3 class="menu-titulo">Programas</h3>
+                    <h3 class="menu-titulo">Programas</h3> <!-- Título del menú -->
                     
+                    <!-- Lista de programas disponibles -->
                     <a href="apps/app1.html" class="menu-item">
                         <img src="imagenes/galeria.png" alt="">
                         <span>Galería</span>
@@ -67,6 +152,7 @@
                 </div>
             </div>
 
+            <!-- Reloj de la barra de tareas -->
             <div class="reloj">12:00 PM</div>
         </div>
         
@@ -76,10 +162,12 @@
 
     
     
+    <!-- JAVASCRIPT: El código que hace que funcionen las cosas -->
     <script>
+        // Esto hace que cuando la página termine de cargar, reproduzca el sonido de inicio
         window.addEventListener('load', function() {
-            const sonido = document.getElementById('sonido-inicio');
-            sonido.play();
+            const sonido = document.getElementById('sonido-inicio'); // Busca el audio
+            sonido.play(); // Lo reproduce automáticamente
         });
     </script>
 
