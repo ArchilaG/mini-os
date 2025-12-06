@@ -44,3 +44,58 @@ Se creó una interfaz de escritorio que simula el aspecto de Windows Vista, incl
 - Sombras y bordes para dar profundidad
 
 -----------------------------------------------------------------------
+Index hecho por Santiago Manuel Archila Guarnizo
+
+## Visualizador de fotos de Windows (Simulación UI)
+
+Este proyecto es una recreación visual de la interfaz de usuario del Visualizador de fotos de Windows (Windows Photo Viewer), específicamente simulando el estilo de las versiones de Windows Vista o Windows 7. Se ha construido utilizando exclusivamente HTML y CSS para replicar la apariencia de la ventana de la aplicación.
+
+# Qué se hizo
+
+Se ha simulado la estructura completa y el estilo visual de la ventana del Visualizador de fotos, incluyendo:
+
+    Barra de Título: La barra superior con el fondo gris/azul claro, el texto del título, y los botones de control de la ventana (Minimizar, Maximizar/Restaurar y Cerrar), incluyendo el estilo distintivo del botón Cerrar (X) en rojo.
+
+    Barra de Menú: La barra debajo del título con opciones como "Archivo", "Imprimir", etc., y el botón de ayuda (?).
+
+    Área de Imagen (Área de Trabajo): El fondo principal en azul muy claro (#EAF2FC) que simula el área de la aplicación.
+
+    Carrusel de Imágenes: Un contenedor central con scroll horizontal que permite simular la navegación entre varias imágenes.
+
+    Marco de Imagen: El estilo que enmarca cada imagen dentro del carrusel con un borde y una sombra para simular el papel fotográfico o el marco de la aplicación.
+
+    Barra Inferior (Footer): La barra de herramientas inferior con el color azul oscuro característico de la interfaz de Windows Vista/7.
+
+## Estructura y Archivos
+
+El proyecto consta de dos archivos principales:
+Archivo	Función
+gallery.html	Estructura principal de la ventana (Barra de título, Menús, Área de imagen y Footer).
+galleystyles.css	Todos los estilos para replicar el aspecto visual de la aplicación y la funcionalidad del carrusel.
+
+## Técnicas CSS y Componentes Clave
+
+El diseño se basa fuertemente en Flexbox para asegurar que los componentes de la ventana se organicen correctamente de arriba a abajo y que el área de imagen ocupe todo el espacio disponible.
+Organización de la Ventana (.main-container)
+
+    Se usa display: flex; con flex-direction: column; para apilar verticalmente la barra de título, la barra de menú, el área central y la barra inferior.
+
+    El elemento .image-area tiene flex-grow: 1; para ocupar todo el espacio vertical que dejan las barras de título, menú y pie de página.
+
+Simulación de Carrusel (.carousel-container)
+
+El carrusel central se logra con las siguientes propiedades CSS en el contenedor:
+
+    display: flex; y overflow-x: scroll; para permitir el desplazamiento horizontal.
+
+    scroll-snap-type: x mandatory; y scroll-snap-align: center; en las imágenes para forzar que el desplazamiento se detenga perfectamente centrado en cada imagen, simulando una interfaz de carrusel limpia.
+
+    Se oculta la barra de desplazamiento nativa con ::-webkit-scrollbar para una apariencia más limpia.
+
+Estilo Aero Glass y Componentes de Ventana
+
+    Colores: Se utilizan colores específicos (#DAE4F0, #EAF2FC, #5D93D0) para replicar la paleta de Windows.
+
+    Botón de Cerrar (#close): Se le da el estilo final de Windows con background-color: #E81123; (rojo).
+
+    Marco de Imagen: Se utiliza una combinación de border: 1px solid #C4C4C4; y box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); para crear el efecto de marco y profundidad.
