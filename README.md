@@ -6,7 +6,8 @@ Este proyecto es una recreación visual del escritorio de Windows Vista usando s
 
 - Carlos Andres Monterrosa Gallego (index)
 - Andrés Mauricio Hidrobo Escalona (calculadora)
-
+- Santiago Manuel Archila Guarnizo (Galeria de Imagenes)
+- Camilo Florez Moreno (Notas)
 ## Qué se hizo
 
 Se creó una interfaz de escritorio que simula el aspecto de Windows Vista, incluyendo:
