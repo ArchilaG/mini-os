@@ -1,8 +1,11 @@
-Index hecho por Carlos Andres Monterrosa Gallego
-
 # Escritorio Windows Vista
 
 Este proyecto es una recreación visual del escritorio de Windows Vista usando solo HTML y CSS.
+
+## Integrantes del grupo
+
+- Carlos Andres Monterrosa Gallego (index)
+- Andrés Mauricio Hidrobo Escalona (calculadora)
 
 ## Qué se hizo
 
@@ -10,6 +13,7 @@ Se creó una interfaz de escritorio que simula el aspecto de Windows Vista, incl
 
 - Un escritorio con fondo degradado azul característico de Vista
 - Iconos de aplicaciones en la parte superior izquierda (Galería, Calculadora y Buscador)
+- Calculadora: Simula la visivilidad de una calculadora con botones que cambian de tamaño ya sea al pasar el mouse por encima o dando click para simular ser botones funcionales
 - Una barra de tareas en la parte inferior con efecto de transparencia
 - Botón de inicio con estilo Aero Glass
 - Reloj en la barra de tareas
