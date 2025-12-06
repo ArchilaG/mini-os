@@ -1,3 +1,5 @@
+Index hecho por Carlos Andres Monterrosa Gallego
+
 # Escritorio Windows Vista
 
 Este proyecto es una recreación visual del escritorio de Windows Vista usando solo HTML y CSS.
@@ -40,3 +42,5 @@ Se creó una interfaz de escritorio que simula el aspecto de Windows Vista, incl
 - Animaciones keyframes para la pantalla de carga y el spinner
 - Hover effects para interactividad sin JavaScript
 - Sombras y bordes para dar profundidad
+
+-----------------------------------------------------------------------
