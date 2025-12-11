@@ -1,3 +1,5 @@
+### link de maqueta:
+* https://excalidraw.com/#json=rtZzs89dQ11WRRVVVEYf7,t3PrGfBu517oxdFEMlNUwQ
 # Escritorio Windows Vista
 
 Este proyecto es una recreación visual del escritorio de Windows Vista usando solo HTML y CSS.
